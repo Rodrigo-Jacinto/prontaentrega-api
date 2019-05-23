@@ -2,7 +2,7 @@ module.exports = app => {
 
     app.route('/bebida')
         .get((req, res) => {
-            let bd = app.app.models.BebidaDao;
+            let bd = app.models.BebidaDao;
 
             if (!Object.keys(req.query).length) {
                 bd.listaTodasBebidas(res);
@@ -14,7 +14,7 @@ module.exports = app => {
 
         })
         .post((req, res) => {
-            let bd = app.app.models.BebidaDao;
+            let bd = app.models.BebidaDao;
 
             if (req.body.hasOwnProperty('id')) {
                 bd.listaIdBebida(res, req.body.id);
@@ -27,7 +27,7 @@ module.exports = app => {
         });
 
     app.post('/bebida/editar', (req, res) => {
-        let bd = app.app.models.BebidaDao;
+        let bd = app.models.BebidaDao;
         bd.editarBebida(res, req.body);
     });
 

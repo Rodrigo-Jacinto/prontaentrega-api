@@ -2,7 +2,7 @@ module.exports = app => {
 
     app.route('/prato')
         .get((req, res) => {
-            let pd = app.app.models.PratoDao;
+            let pd = app.models.PratoDao;
 
             if (!Object.keys(req.query).length) {
                 pd.listaTodosPratos(res);
@@ -14,7 +14,7 @@ module.exports = app => {
 
         })
         .post((req, res) => {
-            let pd = app.app.models.PratoDao;
+            let pd = app.models.PratoDao;
 
             if (req.body.hasOwnProperty('id')) {
                 pd.listaIdPrato(res, req.body.id);
@@ -28,7 +28,7 @@ module.exports = app => {
         });
 
     app.post('/prato/editar', (req, res) => {
-        let pd = app.app.models.PratoDao;
+        let pd = app.models.PratoDao;
         pd.editarPrato(res, req.body);
     });
 

@@ -2,7 +2,7 @@ module.exports = app => {
 
     app.route('/cliente')
         .get((req, res) => {
-            let cd = app.app.models.ClienteDao;
+            let cd = app.models.ClienteDao;
 
             if (!Object.keys(req.query).length) {
                 cd.listaTodosClientes(res);
@@ -14,7 +14,7 @@ module.exports = app => {
 
         })
         .post((req, res) => {
-            let cd = app.app.models.ClienteDao;
+            let cd = app.models.ClienteDao;
 
             if (req.body.hasOwnProperty('id')) {
                 cd.listaIdCliente(res, req.body.id);
@@ -27,20 +27,20 @@ module.exports = app => {
         });
 
     app.post('/cliente/editar', (req, res) => {
-        let cd = app.app.models.ClienteDao;
+        let cd = app.models.ClienteDao;
         cd.editarCliente(res, req.body);
     });
 
     app.post('/cliente/conta', (req, res) => {
 
-        let cd = app.app.models.ClienteDao;
+        let cd = app.models.ClienteDao;
         cd.adicionaConta(res, req.body);
        // console.log(req.body);
     })
 
     app.post('/cliente/conta-excluir', (req, res) => {
 
-        let cd = app.app.models.ClienteDao;
+        let cd = app.models.ClienteDao;
         cd.excluiConta(res, req.body);
        // console.log(req.body);
     })
