@@ -17,7 +17,5 @@ module.exports = app => {
         next();
     });
 
-    app.listen(3001, () => {
-        console.log('Rodando Api-prontaentrega');
-    });
+    app.listen(process.env.PORT || 3001);
 }
