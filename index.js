@@ -3,4 +3,4 @@ let express = require('express')
 
 let app = express();
 
-consign().include('config').then('app/models').then('app/routes').into(app);
+consign({cwd:'app'}).include('config').then('app/models').then('app/routes').into(app);
