@@ -4,7 +4,7 @@ module.exports = app => {
 
         let loginDao = app.models.loginDao;
         loginDao.valida(res, req.body);
-        console.log('Models aqui: ',app.app.models);
+        console.log('Models aqui: ', app.models);
     });
 
 
